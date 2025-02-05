@@ -37,7 +37,7 @@ function chatApp(req, res) {
 
 function respondChat (req, res) {
     const { message } = req.query;
-  
+
     chatEmitter.emit('message', message);
     res.end();
 }
@@ -54,7 +54,7 @@ function respondSSE (req, res) {
     chatEmitter.off('message', onMessage);
   });
 }
-  
+
 
 const app = express();
 app.use(express.static(__dirname + '/public'));
